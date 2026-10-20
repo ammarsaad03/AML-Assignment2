@@ -1,0 +1,7 @@
+run,image_set,psnr,mean_brightness,gt_mean_brightness,blown_out_share
+RUAS_B,validation (35 pairs),12.8969,0.3025,0.4577,0.0317
+RUAS_B,LOL-v1,,0.3968,0.4506,0.0595
+RUAS_B,LSRW,,0.4610,0.4260,0.1943
+RUAS_B_long,validation (35 pairs),12.3092,0.6538,0.4577,0.3014
+RUAS_B_long,LOL-v1,,0.7549,0.4506,0.4397
+RUAS_B_long,LSRW,,0.7692,0.4260,0.4798

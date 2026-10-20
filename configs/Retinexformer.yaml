@@ -1,0 +1,69 @@
+# Retinexformer - "One-stage Retinex-based Transformer for Low-light Image Enhancement" (Cai et al., ICCV 2023)
+# Test-only evaluation with official pretrained weights. Training fields = author's setting (not re-trained).
+model: Retinexformer
+code: https://github.com/caiyuanhao1998/Retinexformer @ 1e9a0efce4b306b6701b824768370ff26066c32a
+wrapper: scripts/run_retinexformer.py
+
+dataset:
+  name: [LOL-v1 eval15, LSRW eval (Huawei + Nikon)]
+  data_source: see docs/sources.md (LOL-v1 via Retinexformer README Google Drive; LSRW via Kaggle mirror of official release)
+
+preprocessing: >-
+  RGB, uint8 -> float32 in [0, 1] (divide by 255), full resolution. As in the official Enhancement/test_from_dataset.py:
+  reflect-pad to a multiple of 4, forward, crop back, clamp to [0, 1] (no padding is needed for LOL-v1 or LSRW sizes).
+  No GT-mean correction, no self-ensemble. Saved as 8-bit PNG (rounded). Shared code: scripts/common.py.
+
+split:
+  train: "author's setting (not re-trained): LOL-v1 training set, 485 pairs (paper Sec. 4.1; Options/RetinexFormer_LOL_v1.yml dataroot data/LOLv1/Train)"
+  val: "author's setting (not re-trained): LOL-v1 Test (15 pairs) is the validation set in Options/RetinexFormer_LOL_v1.yml (val every 1e3 iterations, PSNR) - the same images as the test set"
+  test: "ours: LOL-v1 eval15 (15 pairs); LSRW eval (50 pairs). Only low-light images are given to the model."
+
+input_size:
+  test: full resolution (LOL-v1 600x400; LSRW 960x720 / 960x640)
+  train: "author's setting (not re-trained): random 128x128 patches (paper Sec. 4.1; yml gt_size 128)"
+
+batch_size:
+  test: 1
+  train: "author's setting (not re-trained): 8 (paper Sec. 4.1; yml batch_size_per_gpu 8, 1 GPU)"
+
+training_length: >-
+  author's setting (not re-trained): 2.5e5 iterations (paper Sec. 4.1); the released Options/RetinexFormer_LOL_v1.yml sets
+  total_iter 150000 (scheduler periods 46000 + 104000)
+optimizer: "author's setting (not re-trained): Adam, betas (0.9, 0.999) (paper Sec. 4.1; yml optim_g); gradient clipping on (yml use_grad_clip)"
+learning_rate: >-
+  author's setting (not re-trained): 2e-4, cosine annealing down to 1e-6 (paper Sec. 4.1); yml: optim lr 2e-4 with
+  CosineAnnealingRestartCyclicLR, periods [46000, 104000], eta_mins [3e-4, 1e-6]
+loss_function: "author's setting (not re-trained): L1 / mean absolute error to ground truth (paper Sec. 4.1; yml pixel_opt L1Loss, weight 1). Supervised."
+augmentation: "author's setting (not re-trained): random rotation and flipping (paper Sec. 4.1; yml geometric_augs true); yml additionally enables mixup (beta 1.2, use_identity)"
+
+pretrained_weights:
+  file: weights/Retinexformer/LOL_v1.pth
+  source: "official Google Drive folder https://drive.google.com/drive/folders/1ynK5hfQachzc8y96ZumhkPPDXzHJwaQV (downloaded with gdown, 2026-10-17)"
+  sha256: 9b4810dc51322fab70be8658ee0ad1df64a54aa814497b7849767baa2ff32cd1
+  trained_on: "LOL-v1 training set, 485 pairs (paper Sec. 4.1)"
+  network: "RetinexFormer(in_channels 3, out_channels 3, n_feat 40, stage 1, num_blocks [1, 2, 2]) from Options/RetinexFormer_LOL_v1.yml"
+  used_at_test: all 122 tensors of checkpoint['params'] (strict load); 1,605,701 parameters
+  loading_note: "torch.load(weights_only=False) in our wrapper; architecture file loaded by path, basicsr not installed"
+
+environment:
+  ours: Windows 11, NVIDIA RTX 3060 12 GB, driver 610.88, Python 3.10.21, PyTorch 2.7.1+cu118, CUDA 11.8 (see environment.txt)
+  authors: "README: Python 3.7 + PyTorch 1.11 + CUDA 11.3, or Python 3.9 + PyTorch 2 + CUDA 11.8; GPU: not reported in Sec. 4.1"
+paper_reference: "Cai et al., ICCV 2023, arXiv:2303.06705. Paper reports LOL-v1: 25.16 dB / SSIM 0.845, 1.61 M params, 15.57 G FLOPs at 256x256 (Table 1)"
+
+protocol_B:
+  data: "LOL-v1 training pairs, 450 (configs/protocol_B/train_meta.txt)"
+  validation: "35 held-out LOL-v1 training pairs (configs/protocol_B/val_meta.txt), every 1000 iterations - replaces the official validation on LOL-v1 Test (the test set)"
+  architecture: "official RetinexFormer (n_feat 40, stage 1, num_blocks [1, 2, 2])"
+  input_size: "random 128x128 crops (official)"
+  batch_size: 8
+  iterations: "150,000 (official option file)"
+  optimizer: "Adam, betas (0.9, 0.999), gradient clipping (official)"
+  learning_rate: "2e-4 with CosineAnnealingRestartCyclicLR, periods [46000, 104000], eta_mins [3e-4, 1e-6] (official option file)"
+  loss: "L1 (official)"
+  augmentation: "random flips/rotations + mixup (official)"
+  seed: 42
+  loader: "num_worker_per_gpu 2 (official 8), dataset_enlarge_ratio 50 (official 1) - Windows / 8 GB RAM, training unchanged"
+  checkpoint_selection: "best validation PSNR on the 35 held-out pairs: iteration 103,000 (22.72 dB), best_psnr_22.72_103000.pth"
+  training_time: "6 h 31 min 11 s (about 0.15 s/iteration), logs/train_Retinexformer.log"
+  hardware: "NVIDIA RTX 3060 12 GB, Windows 11, PyTorch 2.7.1+cu118"
+  script: "scripts/train_retinexformer.py (runs the official basicsr/train.py with configs/protocol_B/RetinexFormer_LOL_v1_protocolB.yml)"

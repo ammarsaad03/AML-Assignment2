@@ -1,0 +1,78 @@
+# RUAS - "Retinex-inspired Unrolling with Cooperative Prior Architecture Search for Low-light Image Enhancement"
+# (Liu, Ma, Zhang, Fan, Luo; CVPR 2021; DOI 10.1109/CVPR46437.2021.01042 as provided by the report author)
+# Training fields under the top level = author's setting (not re-trained); protocol_B = what we actually ran.
+model: RUAS
+code: https://github.com/KarelZhang/RUAS @ f621bb19ceffbe27b2d9625bb806bc7cc60aea7b
+wrapper: scripts/run_ruas.py
+training_script: scripts/train_ruas.py
+
+dataset:
+  name: [LOL-v1 eval15, LSRW eval (Huawei + Nikon)]
+  data_source: see docs/sources.md
+
+preprocessing: >-
+  RGB, uint8 -> float32 in [0, 1], full resolution, no resizing/cropping/padding. Official Network(): 3 IEM stages
+  (illumination t, u = clamp(y / t, 0, 1)) followed by the NRM (x = u - noise). Output for the LOL model = x
+  (u_list[-1]), as in the official test.py for 'lol'; clipped to [0, 1], saved as 8-bit PNG (rounded).
+
+split:
+  train: "author's setting (not re-trained): paper Sec. 4.1 - LOL: 689 pairs for searching and training (100 for testing); low-light images only. Note: 689/100 is the size of LOL-v2-real, not LOL-v1."
+  val: not reported
+  test: "ours: LOL-v1 eval15 (15 pairs); LSRW eval (50 pairs)"
+
+input_size:
+  test: full resolution (LOL-v1 600x400; LSRW 960x720 / 960x640)
+  train: "author's setting (not re-trained): random 320x320 crop (models/RUAS/config.py h = w = 320, multi_read_data.py)"
+
+batch_size:
+  test: 1
+  train: "author's setting (not re-trained): 1 (models/RUAS/train.py --batch_size; paper Sec. 4.1)"
+
+training_length: "author's setting (not re-trained): 800 iterations (models/RUAS/train.py, while total_step < 800); paper Sec. 4.1: 'we only need 3 minutes to train network parameters'"
+optimizer: >-
+  author's setting (not re-trained): SGD, momentum 0.9, weight decay 3e-4, grad-norm clip 5 (models/RUAS/model.py);
+  IEM updated every step, NRM only every 50th step. (Search phase in the paper: lr 3e-4, weight decay 1e-3, 20 epochs.)
+learning_rate: "author's setting (not re-trained): IEM 0.015, NRM 0.001, constant (models/RUAS/model.py)"
+loss_function: >-
+  author's setting (not re-trained), unsupervised (low-light images only): IEM 0.5 * MSE(t_K, y) + spatially weighted
+  smoothness loss on t (sigma 0.1, YCbCr weights); NRM 1e-7 * MSE(x, u) + TV(x) (models/RUAS/model.py). The paper
+  (Sec. 3.2.3) describes fidelity + relative total variation for IEM and fidelity + TV for NRM.
+augmentation: "author's setting (not re-trained): random 320x320 crop only"
+architecture: "searched cells from genotypes.py (IEM: 3 channels, NRM: 6 channels; 3 IEM stages, 3 NRM blocks); 3,438 parameters (IEM 1,161 + NRM 2,277)"
+
+pretrained_weights:
+  file: models/RUAS/ckpt/lol.pt
+  trained_on: "LOL (README); paper: 689 LOL pairs (LOL-v2-real size) - overlap with LOL-v1 eval15 cannot be checked"
+  other_files: "ckpt/upe.pt (MIT-Adobe 5K), ckpt/dark.pt (DarkFace) - not used; model/denoise.pt = NRM initialisation used by Network(), training data not reported"
+
+environment:
+  ours: Windows 11, NVIDIA RTX 3060 12 GB, Python 3.10.21, PyTorch 2.7.1+cu118 (see environment.txt)
+  authors: "python 3.6, pytorch 0.4.1 (README); single TITAN X GPU (paper Sec. 4.1)"
+
+protocol_B:
+  data: "LOL-v1 training low images only, 450 (configs/train_split.txt); 35 held-out pairs for validation PSNR (curve only)"
+  architecture: "authors' searched architecture (genotypes.py); train_search.py NOT run"
+  sampling: "random training image at every step (with replacement) + official random 320x320 crop - FIXED data-loading bug in official train.py (it always used one image)"
+  denoiser: "NOT trained from scratch: initialised from the authors' model/denoise.pt (training data not reported), updated every 50th step as in the code (16 updates)"
+  input_size: "320x320 random crop (train); full resolution (validation/test)"
+  batch_size: 1
+  iterations: 800
+  optimizer: "official: SGD momentum 0.9, weight decay 3e-4, grad clip 5; IEM every step, NRM every 50th step"
+  learning_rate: "official: IEM 0.015, NRM 0.001, constant"
+  loss: "official LossFunction (IEM) and DenoiseLossFunction (NRM)"
+  augmentation: "random crop only (official)"
+  seed: 42
+  checkpoint_selection: "final checkpoint (unsupervised)"
+  code_fix: "NRM step uses a detached IEM output (PyTorch >= 1.5 in-place error); gradients of the updated module unchanged"
+  training_time: "60 s for 800 iterations (0.075 s/iteration incl. validation), logs/train_RUAS.log"
+  hardware: "NVIDIA RTX 3060 12 GB, Windows 11"
+
+protocol_B_long:
+  purpose: "supplementary run (decided before any result): does the short official schedule limit RUAS?"
+  settings: "identical to protocol_B except the length"
+  iterations: 50000
+  validation: "every 500 iterations, curve only"
+  checkpoint_selection: "final checkpoint, checkpoints/RUAS_long/final.pt"
+  training_time: "51 min 21 s (0.062 s/iteration), logs/train_RUAS_long.log"
+  script: "scripts/train_ruas.py --long"
+  result: "LOL-v1 10.14 dB / 0.4246 / LPIPS 0.4712; LSRW 8.80 dB / 0.3946 / 0.6047 - strong over-exposure (mean brightness 0.755 on LOL-v1 vs ground truth 0.451); the official 800 iterations are better"

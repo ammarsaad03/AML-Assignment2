@@ -1,0 +1,27 @@
+2026-10-19 13:53:40 | RUAS Protocol B | 450 training images (random image + 320x320 crop per step) | 800 iterations | IEM SGD lr 0.015, NRM SGD lr 0.001 every 50 steps | seed 42
+2026-10-19 13:53:42 | iter 0/800 | val PSNR 8.635 dB (initial model)
+2026-10-19 13:53:47 | iter 50/800 | IEM loss 0.12937 | NRM loss 0.00070 | val PSNR 8.985 dB (curve only) | 0.129 s/it | elapsed 6 s | ETA 97 s
+2026-10-19 13:53:51 | iter 100/800 | IEM loss 0.07976 | NRM loss 0.00423 | val PSNR 9.532 dB (curve only) | 0.100 s/it | elapsed 10 s | ETA 70 s
+2026-10-19 13:53:51 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 100)
+2026-10-19 13:53:54 | iter 150/800 | IEM loss 0.05817 | NRM loss 0.00537 | val PSNR 10.084 dB (curve only) | 0.090 s/it | elapsed 14 s | ETA 59 s
+2026-10-19 13:53:58 | iter 200/800 | IEM loss 0.04430 | NRM loss 0.00228 | val PSNR 10.628 dB (curve only) | 0.085 s/it | elapsed 17 s | ETA 51 s
+2026-10-19 13:53:58 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 200)
+2026-10-19 13:54:01 | iter 250/800 | IEM loss 0.03377 | NRM loss 0.00200 | val PSNR 11.055 dB (curve only) | 0.082 s/it | elapsed 21 s | ETA 45 s
+2026-10-19 13:54:05 | iter 300/800 | IEM loss 0.02511 | NRM loss 0.00688 | val PSNR 11.375 dB (curve only) | 0.081 s/it | elapsed 24 s | ETA 40 s
+2026-10-19 13:54:05 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 300)
+2026-10-19 13:54:09 | iter 350/800 | IEM loss 0.02300 | NRM loss 0.00755 | val PSNR 11.651 dB (curve only) | 0.079 s/it | elapsed 28 s | ETA 36 s
+2026-10-19 13:54:12 | iter 400/800 | IEM loss 0.01896 | NRM loss 0.01613 | val PSNR 11.917 dB (curve only) | 0.078 s/it | elapsed 31 s | ETA 31 s
+2026-10-19 13:54:12 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 400)
+2026-10-19 13:54:16 | iter 450/800 | IEM loss 0.01547 | NRM loss 0.00535 | val PSNR 12.155 dB (curve only) | 0.078 s/it | elapsed 35 s | ETA 27 s
+2026-10-19 13:54:19 | iter 500/800 | IEM loss 0.01312 | NRM loss 0.01603 | val PSNR 12.381 dB (curve only) | 0.077 s/it | elapsed 39 s | ETA 23 s
+2026-10-19 13:54:19 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 500)
+2026-10-19 13:54:23 | iter 550/800 | IEM loss 0.01243 | NRM loss 0.01478 | val PSNR 12.575 dB (curve only) | 0.077 s/it | elapsed 42 s | ETA 19 s
+2026-10-19 13:54:26 | iter 600/800 | IEM loss 0.01158 | NRM loss 0.01801 | val PSNR 12.689 dB (curve only) | 0.076 s/it | elapsed 46 s | ETA 15 s
+2026-10-19 13:54:27 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 600)
+2026-10-19 13:54:30 | iter 650/800 | IEM loss 0.00991 | NRM loss 0.02253 | val PSNR 12.763 dB (curve only) | 0.076 s/it | elapsed 49 s | ETA 11 s
+2026-10-19 13:54:34 | iter 700/800 | IEM loss 0.00952 | NRM loss 0.02565 | val PSNR 12.817 dB (curve only) | 0.075 s/it | elapsed 53 s | ETA 8 s
+2026-10-19 13:54:34 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 700)
+2026-10-19 13:54:37 | iter 750/800 | IEM loss 0.00805 | NRM loss 0.00923 | val PSNR 12.857 dB (curve only) | 0.075 s/it | elapsed 56 s | ETA 4 s
+2026-10-19 13:54:41 | iter 800/800 | IEM loss 0.00718 | NRM loss 0.01625 | val PSNR 12.896 dB (curve only) | 0.075 s/it | elapsed 60 s | ETA 0 s
+2026-10-19 13:54:41 | checkpoint saved: D:\AML_Assignment2\checkpoints\RUAS\last.pt (iteration 800)
+2026-10-19 13:54:41 | TRAINING FINISHED: final checkpoint D:\AML_Assignment2\checkpoints\RUAS\final.pt

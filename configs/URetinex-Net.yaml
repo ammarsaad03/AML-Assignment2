@@ -1,0 +1,57 @@
+# URetinex-Net - "Retinex-based Deep Unfolding Network for Low-light Image Enhancement" (Wu et al., CVPR 2022)
+# Test-only evaluation with official pretrained weights. Training fields = author's setting (not re-trained).
+model: URetinex-Net
+code: https://github.com/AndersonYong/URetinex-Net @ 7ee2196e093b6a9ae5c20242e48f9d61021b6364
+wrapper: scripts/run_uretinex.py
+
+dataset:
+  name: [LOL-v1 eval15, LSRW eval (Huawei + Nikon)]
+  data_source: see docs/sources.md (LOL-v1 via Retinexformer README Google Drive; LSRW via Kaggle mirror of official release)
+
+preprocessing: >-
+  RGB, uint8 -> float32 in [0, 1] (divide by 255), full resolution, no resizing/cropping/padding.
+  Official test.py pipeline: decomposition -> 3 unfolding stages -> illumination adjustment with FIXED ratio 5
+  (official default); output = adjusted L * R, clipped to [0, 1], saved as 8-bit PNG (rounded). Shared code: scripts/common.py.
+  The official evaluate.py is NOT used: it derives the ratio from the ground-truth image.
+
+split:
+  train: "author's setting (not re-trained): LOL training data, 'following the setting of training data as KinD [41]' (paper Sec. 4.1); exact list not reported"
+  val: not reported
+  test: "ours: LOL-v1 eval15 (15 pairs); LSRW eval (50 pairs). Only low-light images are given to the model."
+
+input_size:
+  test: full resolution (LOL-v1 600x400; LSRW 960x720 / 960x640)
+  train: "author's setting (not re-trained): 48x48 patches for the unfolding module (paper Sec. 4.1); other modules not reported"
+
+batch_size:
+  test: 1
+  train: "author's setting (not re-trained): 4, each module trained separately (paper Sec. 4.1)"
+
+training_length: "author's setting (not re-trained): not reported as a total; learning rate decays by 10x after 30K iterations (paper Sec. 4.1)"
+optimizer: "author's setting (not re-trained): Adam (paper Sec. 4.1)"
+learning_rate: "author's setting (not re-trained): 1e-4, divided by 10 after 30K iterations (paper Sec. 4.1)"
+loss_function: >-
+  author's setting (not re-trained): each module trained separately with its own loss (paper Sec. 3); illumination
+  adjustment module: L1 gradient consistency with L + ||R * L_adj - I_normal||_F^2 + (1 - SSIM(R * L_adj, I_normal)) (paper Eq. 18).
+  Supervised (uses normal-light images during training). Unfolding hyper-parameters stored in the checkpoint:
+  T = 3 stages, gamma 0.1 and lambda 0.5, each +0.05 per stage.
+augmentation: "author's setting (not re-trained): not reported"
+
+pretrained_weights:
+  files:
+    - {file: models/URetinex-Net/ckpt/init_low.pth, sha256: 00a8d28ecaff67a79e045b3324bfab57d8ef18236a96a94aa9bcecccbb1f7e2d}
+    - {file: models/URetinex-Net/ckpt/unfolding.pth, sha256: 65ec556a3bd673cc4571bdd937ad38e44a56cbb011b81ad933b7d6ebeb6d55b5}
+    - {file: models/URetinex-Net/ckpt/L_adjust.pth, sha256: 6caba8b00e32758323294f3d49fcc0337e1884964cdebb85ae733ebd67442eda}
+    - "models/URetinex-Net/ckpt/init_high.pth (decomposes the GROUND-TRUTH image in evaluate.py; NOT used)"
+  trained_on: "LOL training set (paper Sec. 4.1)"
+  used_at_test: 340,105 parameters (decomposition 20,548 + unfolding R 188,099 + unfolding L 77,761 + adjustment 53,697)
+  loading_note: "checkpoints contain an argparse.Namespace -> torch.load(weights_only=False) in our wrapper (PyTorch >= 2.6)"
+
+environment:
+  ours: Windows 11, NVIDIA RTX 3060 12 GB, driver 610.88, Python 3.10.21, PyTorch 2.7.1+cu118, CUDA 11.8 (see environment.txt)
+  authors: "Python 3.7.6, PyTorch 1.4.0, torchvision 0.5.0 (models/URetinex-Net/README.md); NVIDIA Tesla V100 (paper Sec. 4.1)"
+paper_reference: >-
+  Wu et al., CVPR 2022, pp. 5901-5910. Paper reports LOL: 21.33 dB / SSIM 0.835 / LPIPS 0.122 (Table 1), consistent with the
+  GT-derived ratio of evaluate.py. With the fixed ratio 5, PairLIE (CVPR 2023, Table 1) reports 19.84 / 0.826 / 0.128.
+
+protocol_B: "not applicable - URetinex-Net is evaluated in Protocol A only (no official training code; see docs/protocol.md)"

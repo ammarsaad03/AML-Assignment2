@@ -1,0 +1,24 @@
+2026-10-17 15:59:36 | python 3.10.21 | torch 2.7.1+cu118 | CUDA build 11.8
+2026-10-17 15:59:36 | GPU: NVIDIA GeForce RTX 3060
+2026-10-17 15:59:36 | weights (Decom_model_low_path): models\URetinex-Net\ckpt\init_low.pth | sha256 00a8d28ecaff67a79e045b3324bfab57d8ef18236a96a94aa9bcecccbb1f7e2d
+2026-10-17 15:59:36 | weights (unfolding_model_path): models\URetinex-Net\ckpt\unfolding.pth | sha256 65ec556a3bd673cc4571bdd937ad38e44a56cbb011b81ad933b7d6ebeb6d55b5
+2026-10-17 15:59:36 | weights (adjust_model_path): models\URetinex-Net\ckpt\L_adjust.pth | sha256 6caba8b00e32758323294f3d49fcc0337e1884964cdebb85ae733ebd67442eda
+2026-10-17 15:59:36 | params used at test: {'decom_low': 20548, 'unfolding_R': 188099, 'unfolding_L': 77761, 'adjust': 53697} | total 340105
+2026-10-17 15:59:36 | unfolding opts from checkpoint: round=3 gamma=0.1 lamda=0.5 Roffset=0.05 Loffset=0.05 | ratio=5 (fixed)
+2026-10-17 15:59:36 | dataset LOL-v1: 15 images -> results\URetinex-Net\LOL-v1
+2026-10-17 15:59:37 | 1.png: 600x400 | 487.1 ms
+2026-10-17 15:59:37 | 111.png: 600x400 | 81.3 ms
+2026-10-17 15:59:37 | 146.png: 600x400 | 82.1 ms
+2026-10-17 15:59:37 | 179.png: 600x400 | 81.8 ms
+2026-10-17 15:59:37 | 22.png: 600x400 | 85.8 ms
+2026-10-17 15:59:37 | 23.png: 600x400 | 85.1 ms
+2026-10-17 15:59:37 | 493.png: 600x400 | 85.9 ms
+2026-10-17 15:59:38 | 547.png: 600x400 | 85.6 ms
+2026-10-17 15:59:38 | 55.png: 600x400 | 85.3 ms
+2026-10-17 15:59:38 | 665.png: 600x400 | 84.7 ms
+2026-10-17 15:59:38 | 669.png: 600x400 | 84.6 ms
+2026-10-17 15:59:38 | 748.png: 600x400 | 82.7 ms
+2026-10-17 15:59:38 | 778.png: 600x400 | 82.4 ms
+2026-10-17 15:59:38 | 780.png: 600x400 | 82.5 ms
+2026-10-17 15:59:38 | 79.png: 600x400 | 81.6 ms
+2026-10-17 15:59:38 | done: 15 images | mean time 83.68 ms/img (excluding first)

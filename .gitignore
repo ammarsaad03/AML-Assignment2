@@ -1,0 +1,31 @@
+# Datasets
+data/
+
+# Official model repos (cloned separately; URLs + commit hashes in docs/sources.md)
+models/
+
+# Large result image folders (keep CSV/metric files directly in results/)
+results/*/
+
+# Model weights: git cannot filter by file size, so all weight files are ignored.
+# A small one (<50 MB) can still be committed on purpose with: git add -f <file>
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.safetensors
+weights/
+
+# Python / Jupyter / editor
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+
+# Protocol B training checkpoints
+checkpoints/
+
+# Generated submission package and personal backup copies of the report
+submission/
+submission.zip
+report/*EDITED*

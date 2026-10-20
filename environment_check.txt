@@ -1,0 +1,29 @@
+Environment check - 2026-10-17 14:49
+Python      : 3.10.21 (D:\Programs\MiniConda\envs\aml2\python.exe)
+Platform    : Windows-10-10.0.26200-SP0
+torch       : 2.7.1+cu118
+torchvision : 0.22.1+cu118
+CUDA build  : 11.8 | cuDNN 90100
+CUDA avail. : True
+GPU         : NVIDIA GeForce RTX 3060 (12.0 GB)
+GPU test    : matmul OK
+
+Library          Version                    Import
+----------------------------------------------------
+numpy            2.2.6                      OK
+opencv-python    5.0.0.93                   OK
+pillow           12.3.0                     OK
+scikit-image     0.25.2                     OK
+scipy            1.15.2                     OK
+matplotlib       3.10.9                     OK
+pandas           2.3.3                      OK
+tqdm             4.70.0                     OK
+pyyaml           6.0.3                      OK
+lpips            0.1.4                      OK
+thop             0.1.1-2209072238           OK
+fvcore           0.1.5.post20221221         OK
+gdown            6.4.2                      OK
+einops           0.8.2                      OK
+timm             1.0.30                     OK
+
+Result: ALL OK

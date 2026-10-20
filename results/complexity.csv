@@ -1,0 +1,6 @@
+model,params,gmacs_256,runtime_ms_LOL-v1,runtime_ms_LSRW,fvcore_skipped_ops,gpu,torch
+SCI,258,0.0163,5.868,15.709,aten::add aten::div aten::sigmoid,NVIDIA GeForce RTX 3060,2.7.1+cu118
+PairLIE,341767,22.3473,35.428,96.193,aten::mul aten::pad aten::pow aten::sigmoid,NVIDIA GeForce RTX 3060,2.7.1+cu118
+URetinex-Net,340105,56.9335,81.708,222.473,aten::add aten::div aten::expand_as aten::leaky_relu aten::leaky_relu_ aten::mul aten::sigmoid,NVIDIA GeForce RTX 3060,2.7.1+cu118
+Retinexformer,1605701,16.7156,103.552,286.121,aten::add aten::clamp_min aten::div aten::expand_as aten::gelu aten::linalg_vector_norm aten::mean aten::mul aten::pad aten::softmax,NVIDIA GeForce RTX 3060,2.7.1+cu118
+RUAS,3438,0.2141,37.056,100.976,aten::add aten::div aten::leaky_relu aten::mul aten::pad aten::sigmoid aten::sub,NVIDIA GeForce RTX 3060,2.7.1+cu118

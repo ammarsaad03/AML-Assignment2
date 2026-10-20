@@ -1,0 +1,21 @@
+2026-10-18 21:37:07 | python 3.10.21 | torch 2.7.1+cu118 | CUDA build 11.8
+2026-10-18 21:37:07 | GPU: NVIDIA GeForce RTX 3060
+2026-10-18 21:37:07 | weights: checkpoints\Retinexformer\RetinexFormer_LOL_v1_protocolB\best_psnr_22.72_103000.pth | sha256 9b285c9f8142c42f372a70d653410a7b47e2b197717e8e87410f10cde41241b7
+2026-10-18 21:37:07 | network (from models\Retinexformer\Options\RetinexFormer_LOL_v1.yml): {'in_channels': 3, 'out_channels': 3, 'n_feat': 40, 'stage': 1, 'num_blocks': [1, 2, 2]} | loaded 122 tensors (strict) | params 1605701
+2026-10-18 21:37:07 | dataset LOL-v1: 15 images -> results\Retinexformer_B\LOL-v1
+2026-10-18 21:37:10 | 1.png: 600x400 | 3007.9 ms
+2026-10-18 21:37:10 | 111.png: 600x400 | 104.0 ms
+2026-10-18 21:37:11 | 146.png: 600x400 | 103.2 ms
+2026-10-18 21:37:11 | 179.png: 600x400 | 103.9 ms
+2026-10-18 21:37:11 | 22.png: 600x400 | 103.6 ms
+2026-10-18 21:37:11 | 23.png: 600x400 | 103.5 ms
+2026-10-18 21:37:11 | 493.png: 600x400 | 105.4 ms
+2026-10-18 21:37:11 | 547.png: 600x400 | 104.1 ms
+2026-10-18 21:37:12 | 55.png: 600x400 | 104.5 ms
+2026-10-18 21:37:12 | 665.png: 600x400 | 103.7 ms
+2026-10-18 21:37:12 | 669.png: 600x400 | 103.4 ms
+2026-10-18 21:37:12 | 748.png: 600x400 | 104.0 ms
+2026-10-18 21:37:12 | 778.png: 600x400 | 104.5 ms
+2026-10-18 21:37:12 | 780.png: 600x400 | 104.4 ms
+2026-10-18 21:37:12 | 79.png: 600x400 | 104.2 ms
+2026-10-18 21:37:12 | done: 15 images | mean time 104.03 ms/img (excluding first)

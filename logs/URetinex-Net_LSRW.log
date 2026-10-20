@@ -1,0 +1,59 @@
+2026-10-17 16:37:11 | python 3.10.21 | torch 2.7.1+cu118 | CUDA build 11.8
+2026-10-17 16:37:11 | GPU: NVIDIA GeForce RTX 3060
+2026-10-17 16:37:11 | weights (Decom_model_low_path): models\URetinex-Net\ckpt\init_low.pth | sha256 00a8d28ecaff67a79e045b3324bfab57d8ef18236a96a94aa9bcecccbb1f7e2d
+2026-10-17 16:37:11 | weights (unfolding_model_path): models\URetinex-Net\ckpt\unfolding.pth | sha256 65ec556a3bd673cc4571bdd937ad38e44a56cbb011b81ad933b7d6ebeb6d55b5
+2026-10-17 16:37:11 | weights (adjust_model_path): models\URetinex-Net\ckpt\L_adjust.pth | sha256 6caba8b00e32758323294f3d49fcc0337e1884964cdebb85ae733ebd67442eda
+2026-10-17 16:37:11 | params used at test: {'decom_low': 20548, 'unfolding_R': 188099, 'unfolding_L': 77761, 'adjust': 53697} | total 340105
+2026-10-17 16:37:11 | unfolding opts from checkpoint: round=3 gamma=0.1 lamda=0.5 Roffset=0.05 Loffset=0.05 | ratio=5 (fixed)
+2026-10-17 16:37:11 | dataset LSRW: 50 images -> results\URetinex-Net\LSRW
+2026-10-17 16:37:12 | huawei_2037.jpg: 960x720 | 580.6 ms
+2026-10-17 16:37:12 | huawei_2038.jpg: 960x720 | 230.4 ms
+2026-10-17 16:37:12 | huawei_2039.jpg: 960x720 | 230.3 ms
+2026-10-17 16:37:13 | huawei_2040.jpg: 960x720 | 230.6 ms
+2026-10-17 16:37:13 | huawei_2041.jpg: 960x720 | 231.0 ms
+2026-10-17 16:37:13 | huawei_2042.jpg: 960x720 | 231.2 ms
+2026-10-17 16:37:14 | huawei_2043.jpg: 960x720 | 231.8 ms
+2026-10-17 16:37:14 | huawei_2044.jpg: 960x720 | 231.6 ms
+2026-10-17 16:37:14 | huawei_2045.jpg: 960x720 | 232.8 ms
+2026-10-17 16:37:15 | huawei_2046.jpg: 960x720 | 232.7 ms
+2026-10-17 16:37:15 | huawei_2047.jpg: 960x720 | 231.8 ms
+2026-10-17 16:37:15 | huawei_2048.jpg: 960x720 | 231.7 ms
+2026-10-17 16:37:16 | huawei_2049.jpg: 960x720 | 231.3 ms
+2026-10-17 16:37:16 | huawei_2050.jpg: 960x720 | 231.8 ms
+2026-10-17 16:37:16 | huawei_2051.jpg: 960x720 | 232.4 ms
+2026-10-17 16:37:17 | huawei_2052.jpg: 960x720 | 231.0 ms
+2026-10-17 16:37:17 | huawei_2053.jpg: 960x720 | 231.1 ms
+2026-10-17 16:37:17 | huawei_2054.jpg: 960x720 | 231.2 ms
+2026-10-17 16:37:18 | huawei_2055.jpg: 960x720 | 231.9 ms
+2026-10-17 16:37:18 | huawei_2056.jpg: 960x720 | 231.6 ms
+2026-10-17 16:37:18 | huawei_2057.jpg: 960x720 | 231.8 ms
+2026-10-17 16:37:19 | huawei_2058.jpg: 960x720 | 231.5 ms
+2026-10-17 16:37:19 | huawei_2059.jpg: 960x720 | 232.6 ms
+2026-10-17 16:37:19 | huawei_2060.jpg: 960x720 | 232.8 ms
+2026-10-17 16:37:20 | huawei_2061.jpg: 960x720 | 233.2 ms
+2026-10-17 16:37:20 | huawei_2062.jpg: 960x720 | 231.5 ms
+2026-10-17 16:37:20 | huawei_2063.jpg: 960x720 | 231.4 ms
+2026-10-17 16:37:21 | huawei_2064.jpg: 960x720 | 231.5 ms
+2026-10-17 16:37:21 | huawei_2065.jpg: 960x720 | 232.1 ms
+2026-10-17 16:37:21 | huawei_2066.jpg: 960x720 | 231.6 ms
+2026-10-17 16:37:22 | nikon_3001.jpg: 960x640 | 207.9 ms
+2026-10-17 16:37:22 | nikon_3002.jpg: 960x640 | 205.9 ms
+2026-10-17 16:37:22 | nikon_3003.jpg: 960x640 | 206.0 ms
+2026-10-17 16:37:23 | nikon_3004.jpg: 960x640 | 206.1 ms
+2026-10-17 16:37:23 | nikon_3005.jpg: 960x640 | 206.6 ms
+2026-10-17 16:37:23 | nikon_3006.jpg: 960x640 | 206.7 ms
+2026-10-17 16:37:24 | nikon_3007.jpg: 960x640 | 211.8 ms
+2026-10-17 16:37:24 | nikon_3008.jpg: 960x640 | 205.5 ms
+2026-10-17 16:37:24 | nikon_3009.jpg: 960x640 | 207.9 ms
+2026-10-17 16:37:24 | nikon_3010.jpg: 960x640 | 206.6 ms
+2026-10-17 16:37:25 | nikon_3011.jpg: 960x640 | 206.7 ms
+2026-10-17 16:37:25 | nikon_3012.jpg: 960x640 | 205.8 ms
+2026-10-17 16:37:25 | nikon_3013.jpg: 960x640 | 205.3 ms
+2026-10-17 16:37:26 | nikon_3014.jpg: 960x640 | 206.1 ms
+2026-10-17 16:37:26 | nikon_3015.jpg: 960x640 | 205.5 ms
+2026-10-17 16:37:26 | nikon_3016.jpg: 960x640 | 206.1 ms
+2026-10-17 16:37:26 | nikon_3017.jpg: 960x640 | 206.3 ms
+2026-10-17 16:37:27 | nikon_3018.jpg: 960x640 | 206.0 ms
+2026-10-17 16:37:27 | nikon_3019.jpg: 960x640 | 206.8 ms
+2026-10-17 16:37:27 | nikon_3020.jpg: 960x640 | 206.3 ms
+2026-10-17 16:37:27 | done: 50 images | mean time 221.43 ms/img (excluding first)

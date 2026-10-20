@@ -1,0 +1,4 @@
+2026-10-18 13:09:04 | PairLIE Protocol B | 128 sequences, 318 images | epochs 400 | Adam lr 0.0001, x0.5 every 100 epochs | crop 128 | seed 42
+2026-10-18 13:09:10 | epoch 1 | iters 128 | train_loss 33.44606 | lr 0.00010 | epoch_seconds 3.30000 | val_psnr 13.48312
+2026-10-18 13:09:13 | epoch 2 | iters 256 | train_loss 1.74827 | lr 0.00010 | epoch_seconds 2.70000
+2026-10-18 13:09:13 | SPEED PairLIE: 300 iters measured (batch 1) | 0.0203 s/iter | peak GPU mem allocated 2.21 GB (reserved 2.28 GB) | full training = 51200 iters -> estimated 0.29 h

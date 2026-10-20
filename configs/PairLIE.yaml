@@ -1,0 +1,65 @@
+# PairLIE - "Learning a Simple Low-light Image Enhancer from Paired Low-light Instances" (Fu et al., CVPR 2023)
+# Test-only evaluation with official pretrained weights. Training fields = author's setting (not re-trained).
+model: PairLIE
+code: https://github.com/zhenqifu/PairLIE @ 3fd5c1586aa5f8f0736382de36d5bf46a4e208c2
+wrapper: scripts/run_pairlie.py
+
+dataset:
+  name: [LOL-v1 eval15, LSRW eval (Huawei + Nikon)]
+  data_source: see docs/sources.md (LOL-v1 via Retinexformer README Google Drive; LSRW via Kaggle mirror of official release)
+
+preprocessing: >-
+  RGB, uint8 -> float32 in [0, 1] (divide by 255), full resolution, no resizing/cropping/padding.
+  Output I = L^0.2 * R (official default exponent, same for both datasets), saved as 8-bit PNG (rounded).
+  Shared code: scripts/common.py. Same as official eval.py (PIL RGB + ToTensor), except official saving truncates.
+
+split:
+  train: "author's setting (not re-trained): 324 multi-exposure low-light sequences (1000 images, 2-6 per sequence) from SICE part2 (under-exposed, well-aligned only) + LOL training set; two images of a sequence form a pair (paper Sec. 3.7; models/PairLIE/dataset.py, __len__ = 324)"
+  val: not reported
+  test: "ours: LOL-v1 eval15 (15 pairs); LSRW eval (50 pairs). Only low-light images are given to the model."
+
+input_size:
+  test: full resolution (LOL-v1 600x400; LSRW 960x720 / 960x640)
+  train: "author's setting (not re-trained): random 128x128 crop, same crop for both images of a pair (models/PairLIE/data.py, transform1)"
+
+batch_size:
+  test: 1
+  train: "author's setting (not re-trained): 1 (models/PairLIE/main.py, --batchSize default)"
+
+training_length: "author's setting (not re-trained): 400 epochs (paper Sec. 4.1; models/PairLIE/main.py, --nEpochs)"
+optimizer: "author's setting (not re-trained): Adam, betas (0.9, 0.999), eps 1e-8 (paper Sec. 4.1; models/PairLIE/main.py)"
+learning_rate: "author's setting (not re-trained): 1e-4, halved every 100 epochs (paper Sec. 4.1; models/PairLIE/main.py MultiStepLR, --decay 100, --gamma 0.5)"
+loss_function: >-
+  author's setting (not re-trained): unsupervised, on pairs of low-light images (im1, im2):
+  1 * C_loss (MSE between reflectances R1, R2) + 1 * R_loss (Retinex: MSE(L*R, X) + MSE(R, X/L) + MSE(L, max-RGB) + TV(L))
+  + 500 * P_loss (MSE(im1, X1), X = denoised input from N_net) (models/PairLIE/main.py, utils.py)
+augmentation: "author's setting (not re-trained): random crop 128x128 only, no flips/rotations (models/PairLIE/data.py)"
+
+pretrained_weights:
+  file: models/PairLIE/weights/PairLIE.pth
+  sha256: e223ec9e66504550e69f65b631ce520be9b5c4e8e0aba882768d06af355b0631
+  trained_on: "SICE part2 + LOL training set, 324 sequences (paper Sec. 3.7). Paper uses lambda = 0.14 for LOL (Sec. 4.1); we keep the default 0.2 for all test sets (docs/protocol.md)"
+  used_at_test: all 30 tensors (strict load); 341,767 parameters
+
+environment:
+  ours: Windows 11, NVIDIA RTX 3060 12 GB, driver 610.88, Python 3.10.21, PyTorch 2.7.1+cu118, CUDA 11.8 (see environment.txt)
+  authors: "Ubuntu 16.04.5, Python 3.7, PyTorch 1.12.0, one NVIDIA RTX 2080Ti (models/PairLIE/README.md)"
+paper_reference: "Fu et al., CVPR 2023, pp. 22252-22261. Paper reports LOL-v1 eval15: 19.51 dB / 0.736 / LPIPS 0.248 with lambda = 0.14 (Table 1)"
+
+protocol_B:
+  data: "LOL-derived sequences of the authors' training set only: 128 sequences, 318 LOL-v1 training low images (SICE sequences and our 35 validation images removed; configs/protocol_B/pairlie_train_sequences.txt)"
+  validation: "35 held-out LOL-v1 training pairs, validation PSNR every 10 epochs (curve only)"
+  architecture: "official net (N_net, L_net, R_net)"
+  input_size: "random 128x128 crop, same crop for both images of a pair (official)"
+  batch_size: 1
+  epochs: "400 (official) = 51,200 iterations (official 129,600 with 324 sequences)"
+  optimizer: "Adam, betas (0.9, 0.999), eps 1e-8 (official)"
+  learning_rate: "1e-4, halved every 100 epochs (official)"
+  loss: "official: 1 * C_loss + 1 * R_loss + 500 * P_loss"
+  augmentation: "random crop only (official)"
+  seed: 42
+  checkpoint_selection: "final checkpoint (unsupervised), checkpoints/PairLIE/final.pth"
+  test_setting: "I = L^0.2 * R (official default exponent)"
+  training_time: "18 min 43 s (0.022 s/iteration), logs/train_PairLIE.log"
+  hardware: "NVIDIA RTX 3060 12 GB, Windows 11, PyTorch 2.7.1+cu118"
+  script: scripts/train_pairlie.py

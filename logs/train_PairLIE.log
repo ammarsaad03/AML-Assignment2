@@ -1,0 +1,143 @@
+2026-10-18 13:43:02 | PairLIE Protocol B | 128 sequences, 318 images | epochs 400 | Adam lr 0.0001, x0.5 every 100 epochs | crop 128 | seed 42
+2026-10-18 13:43:09 | epoch 1/400 | mean train loss 33.44606 | val PSNR 13.483 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:43:20 | epoch 5/400 | iter 640/51200 | loss 7.92017 | 0.027 s/it | elapsed 00:00:17 | ETA 00:22:30
+2026-10-18 13:43:33 | epoch 10/400 | iter 1280/51200 | loss 0.34272 | 0.024 s/it | elapsed 00:00:30 | ETA 00:19:45
+2026-10-18 13:43:35 | epoch 10/400 | mean train loss 0.26320 | val PSNR 15.823 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:43:48 | epoch 15/400 | iter 1920/51200 | loss 0.25740 | 0.024 s/it | elapsed 00:00:45 | ETA 00:19:27
+2026-10-18 13:44:02 | epoch 20/400 | iter 2560/51200 | loss 0.25214 | 0.023 s/it | elapsed 00:00:59 | ETA 00:18:41
+2026-10-18 13:44:04 | epoch 20/400 | mean train loss 0.22883 | val PSNR 15.995 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:44:04 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 20)
+2026-10-18 13:44:17 | epoch 25/400 | iter 3200/51200 | loss 0.24142 | 0.023 s/it | elapsed 00:01:14 | ETA 00:18:34
+2026-10-18 13:44:31 | epoch 30/400 | iter 3840/51200 | loss 0.25880 | 0.023 s/it | elapsed 00:01:27 | ETA 00:18:02
+2026-10-18 13:44:32 | epoch 30/400 | mean train loss 0.23614 | val PSNR 15.887 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:44:46 | epoch 35/400 | iter 4480/51200 | loss 0.19272 | 0.023 s/it | elapsed 00:01:42 | ETA 00:17:51
+2026-10-18 13:44:59 | epoch 40/400 | iter 5120/51200 | loss 0.20542 | 0.023 s/it | elapsed 00:01:56 | ETA 00:17:25
+2026-10-18 13:45:01 | epoch 40/400 | mean train loss 0.18383 | val PSNR 16.279 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:45:01 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 40)
+2026-10-18 13:45:14 | epoch 45/400 | iter 5760/51200 | loss 0.19177 | 0.023 s/it | elapsed 00:02:11 | ETA 00:17:15
+2026-10-18 13:45:28 | epoch 50/400 | iter 6400/51200 | loss 0.22158 | 0.023 s/it | elapsed 00:02:24 | ETA 00:16:53
+2026-10-18 13:45:29 | epoch 50/400 | mean train loss 0.27516 | val PSNR 16.368 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:45:43 | epoch 55/400 | iter 7040/51200 | loss 0.17605 | 0.023 s/it | elapsed 00:02:40 | ETA 00:16:43
+2026-10-18 13:45:56 | epoch 60/400 | iter 7680/51200 | loss 0.17824 | 0.023 s/it | elapsed 00:02:53 | ETA 00:16:22
+2026-10-18 13:45:58 | epoch 60/400 | mean train loss 0.15269 | val PSNR 15.877 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:45:58 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 60)
+2026-10-18 13:46:12 | epoch 65/400 | iter 8320/51200 | loss 0.17911 | 0.023 s/it | elapsed 00:03:08 | ETA 00:16:13
+2026-10-18 13:46:25 | epoch 70/400 | iter 8960/51200 | loss 0.17320 | 0.023 s/it | elapsed 00:03:22 | ETA 00:15:53
+2026-10-18 13:46:27 | epoch 70/400 | mean train loss 0.16079 | val PSNR 15.385 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:46:40 | epoch 75/400 | iter 9600/51200 | loss 0.17793 | 0.023 s/it | elapsed 00:03:37 | ETA 00:15:41
+2026-10-18 13:46:54 | epoch 80/400 | iter 10240/51200 | loss 0.17940 | 0.023 s/it | elapsed 00:03:50 | ETA 00:15:23
+2026-10-18 13:46:55 | epoch 80/400 | mean train loss 0.15206 | val PSNR 16.801 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:46:55 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 80)
+2026-10-18 13:47:09 | epoch 85/400 | iter 10880/51200 | loss 0.16893 | 0.023 s/it | elapsed 00:04:06 | ETA 00:15:12
+2026-10-18 13:47:23 | epoch 90/400 | iter 11520/51200 | loss 0.16352 | 0.023 s/it | elapsed 00:04:19 | ETA 00:14:54
+2026-10-18 13:47:24 | epoch 90/400 | mean train loss 0.13804 | val PSNR 16.885 dB (35 held-out pairs, curve only) | lr 1.00e-04
+2026-10-18 13:47:38 | epoch 95/400 | iter 12160/51200 | loss 0.15005 | 0.023 s/it | elapsed 00:04:35 | ETA 00:14:44
+2026-10-18 13:47:52 | epoch 100/400 | iter 12800/51200 | loss 0.16334 | 0.023 s/it | elapsed 00:04:48 | ETA 00:14:25
+2026-10-18 13:47:53 | epoch 100/400 | mean train loss 0.14890 | val PSNR 17.152 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:47:53 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 100)
+2026-10-18 13:48:07 | epoch 105/400 | iter 13440/51200 | loss 0.12679 | 0.023 s/it | elapsed 00:05:03 | ETA 00:14:13
+2026-10-18 13:48:20 | epoch 110/400 | iter 14080/51200 | loss 0.12742 | 0.023 s/it | elapsed 00:05:17 | ETA 00:13:56
+2026-10-18 13:48:22 | epoch 110/400 | mean train loss 0.12816 | val PSNR 16.527 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:48:35 | epoch 115/400 | iter 14720/51200 | loss 0.12555 | 0.023 s/it | elapsed 00:05:31 | ETA 00:13:42
+2026-10-18 13:48:48 | epoch 120/400 | iter 15360/51200 | loss 0.12311 | 0.022 s/it | elapsed 00:05:45 | ETA 00:13:25
+2026-10-18 13:48:50 | epoch 120/400 | mean train loss 0.13196 | val PSNR 15.838 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:48:50 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 120)
+2026-10-18 13:49:03 | epoch 125/400 | iter 16000/51200 | loss 0.12621 | 0.023 s/it | elapsed 00:06:00 | ETA 00:13:12
+2026-10-18 13:49:16 | epoch 130/400 | iter 16640/51200 | loss 0.12057 | 0.022 s/it | elapsed 00:06:13 | ETA 00:12:55
+2026-10-18 13:49:18 | epoch 130/400 | mean train loss 0.13476 | val PSNR 16.594 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:49:31 | epoch 135/400 | iter 17280/51200 | loss 0.13550 | 0.022 s/it | elapsed 00:06:27 | ETA 00:12:41
+2026-10-18 13:49:44 | epoch 140/400 | iter 17920/51200 | loss 0.11864 | 0.022 s/it | elapsed 00:06:41 | ETA 00:12:25
+2026-10-18 13:49:46 | epoch 140/400 | mean train loss 0.11578 | val PSNR 16.111 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:49:46 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 140)
+2026-10-18 13:49:59 | epoch 145/400 | iter 18560/51200 | loss 0.13184 | 0.022 s/it | elapsed 00:06:56 | ETA 00:12:12
+2026-10-18 13:50:13 | epoch 150/400 | iter 19200/51200 | loss 0.11824 | 0.022 s/it | elapsed 00:07:09 | ETA 00:11:56
+2026-10-18 13:50:14 | epoch 150/400 | mean train loss 0.11474 | val PSNR 16.768 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:50:27 | epoch 155/400 | iter 19840/51200 | loss 0.11998 | 0.022 s/it | elapsed 00:07:24 | ETA 00:11:42
+2026-10-18 13:50:41 | epoch 160/400 | iter 20480/51200 | loss 0.12022 | 0.022 s/it | elapsed 00:07:37 | ETA 00:11:26
+2026-10-18 13:50:42 | epoch 160/400 | mean train loss 0.11735 | val PSNR 16.854 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:50:42 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 160)
+2026-10-18 13:50:56 | epoch 165/400 | iter 21120/51200 | loss 0.12135 | 0.022 s/it | elapsed 00:07:52 | ETA 00:11:13
+2026-10-18 13:51:09 | epoch 170/400 | iter 21760/51200 | loss 0.11955 | 0.022 s/it | elapsed 00:08:06 | ETA 00:10:57
+2026-10-18 13:51:11 | epoch 170/400 | mean train loss 0.12495 | val PSNR 17.289 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:51:24 | epoch 175/400 | iter 22400/51200 | loss 0.11399 | 0.022 s/it | elapsed 00:08:21 | ETA 00:10:44
+2026-10-18 13:51:37 | epoch 180/400 | iter 23040/51200 | loss 0.12308 | 0.022 s/it | elapsed 00:08:34 | ETA 00:10:28
+2026-10-18 13:51:39 | epoch 180/400 | mean train loss 0.11941 | val PSNR 17.090 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:51:39 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 180)
+2026-10-18 13:51:52 | epoch 185/400 | iter 23680/51200 | loss 0.11229 | 0.022 s/it | elapsed 00:08:49 | ETA 00:10:15
+2026-10-18 13:52:06 | epoch 190/400 | iter 24320/51200 | loss 0.11553 | 0.022 s/it | elapsed 00:09:02 | ETA 00:09:59
+2026-10-18 13:52:07 | epoch 190/400 | mean train loss 0.11497 | val PSNR 16.901 dB (35 held-out pairs, curve only) | lr 5.00e-05
+2026-10-18 13:52:21 | epoch 195/400 | iter 24960/51200 | loss 0.11664 | 0.022 s/it | elapsed 00:09:17 | ETA 00:09:46
+2026-10-18 13:52:34 | epoch 200/400 | iter 25600/51200 | loss 0.12336 | 0.022 s/it | elapsed 00:09:31 | ETA 00:09:31
+2026-10-18 13:52:36 | epoch 200/400 | mean train loss 0.11658 | val PSNR 16.173 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:52:36 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 200)
+2026-10-18 13:52:50 | epoch 205/400 | iter 26240/51200 | loss 0.10970 | 0.022 s/it | elapsed 00:09:46 | ETA 00:09:18
+2026-10-18 13:53:03 | epoch 210/400 | iter 26880/51200 | loss 0.11027 | 0.022 s/it | elapsed 00:10:00 | ETA 00:09:02
+2026-10-18 13:53:05 | epoch 210/400 | mean train loss 0.10741 | val PSNR 16.576 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:53:18 | epoch 215/400 | iter 27520/51200 | loss 0.10551 | 0.022 s/it | elapsed 00:10:15 | ETA 00:08:49
+2026-10-18 13:53:32 | epoch 220/400 | iter 28160/51200 | loss 0.10636 | 0.022 s/it | elapsed 00:10:28 | ETA 00:08:34
+2026-10-18 13:53:33 | epoch 220/400 | mean train loss 0.10851 | val PSNR 16.997 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:53:33 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 220)
+2026-10-18 13:53:47 | epoch 225/400 | iter 28800/51200 | loss 0.10393 | 0.022 s/it | elapsed 00:10:43 | ETA 00:08:20
+2026-10-18 13:54:00 | epoch 230/400 | iter 29440/51200 | loss 0.10585 | 0.022 s/it | elapsed 00:10:57 | ETA 00:08:05
+2026-10-18 13:54:02 | epoch 230/400 | mean train loss 0.10939 | val PSNR 16.697 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:54:15 | epoch 235/400 | iter 30080/51200 | loss 0.11231 | 0.022 s/it | elapsed 00:11:12 | ETA 00:07:52
+2026-10-18 13:54:29 | epoch 240/400 | iter 30720/51200 | loss 0.10736 | 0.022 s/it | elapsed 00:11:25 | ETA 00:07:37
+2026-10-18 13:54:31 | epoch 240/400 | mean train loss 0.10825 | val PSNR 17.127 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:54:31 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 240)
+2026-10-18 13:54:43 | epoch 245/400 | iter 31360/51200 | loss 0.10721 | 0.022 s/it | elapsed 00:11:40 | ETA 00:07:23
+2026-10-18 13:54:56 | epoch 250/400 | iter 32000/51200 | loss 0.10657 | 0.022 s/it | elapsed 00:11:53 | ETA 00:07:07
+2026-10-18 13:54:58 | epoch 250/400 | mean train loss 0.09665 | val PSNR 16.415 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:55:11 | epoch 255/400 | iter 32640/51200 | loss 0.10179 | 0.022 s/it | elapsed 00:12:07 | ETA 00:06:53
+2026-10-18 13:55:24 | epoch 260/400 | iter 33280/51200 | loss 0.10714 | 0.022 s/it | elapsed 00:12:20 | ETA 00:06:38
+2026-10-18 13:55:25 | epoch 260/400 | mean train loss 0.10881 | val PSNR 16.507 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:55:25 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 260)
+2026-10-18 13:55:38 | epoch 265/400 | iter 33920/51200 | loss 0.11083 | 0.022 s/it | elapsed 00:12:35 | ETA 00:06:24
+2026-10-18 13:55:51 | epoch 270/400 | iter 34560/51200 | loss 0.11626 | 0.022 s/it | elapsed 00:12:48 | ETA 00:06:09
+2026-10-18 13:55:53 | epoch 270/400 | mean train loss 0.10402 | val PSNR 16.338 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:56:06 | epoch 275/400 | iter 35200/51200 | loss 0.10218 | 0.022 s/it | elapsed 00:13:02 | ETA 00:05:55
+2026-10-18 13:56:18 | epoch 280/400 | iter 35840/51200 | loss 0.10791 | 0.022 s/it | elapsed 00:13:15 | ETA 00:05:40
+2026-10-18 13:56:20 | epoch 280/400 | mean train loss 0.11532 | val PSNR 16.720 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:56:20 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 280)
+2026-10-18 13:56:33 | epoch 285/400 | iter 36480/51200 | loss 0.10096 | 0.022 s/it | elapsed 00:13:29 | ETA 00:05:26
+2026-10-18 13:56:45 | epoch 290/400 | iter 37120/51200 | loss 0.10402 | 0.022 s/it | elapsed 00:13:42 | ETA 00:05:11
+2026-10-18 13:56:47 | epoch 290/400 | mean train loss 0.09332 | val PSNR 16.428 dB (35 held-out pairs, curve only) | lr 2.50e-05
+2026-10-18 13:57:00 | epoch 295/400 | iter 37760/51200 | loss 0.10306 | 0.022 s/it | elapsed 00:13:56 | ETA 00:04:57
+2026-10-18 13:57:13 | epoch 300/400 | iter 38400/51200 | loss 0.10651 | 0.022 s/it | elapsed 00:14:09 | ETA 00:04:43
+2026-10-18 13:57:15 | epoch 300/400 | mean train loss 0.10430 | val PSNR 16.878 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:57:15 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 300)
+2026-10-18 13:57:28 | epoch 305/400 | iter 39040/51200 | loss 0.10047 | 0.022 s/it | elapsed 00:14:24 | ETA 00:04:29
+2026-10-18 13:57:41 | epoch 310/400 | iter 39680/51200 | loss 0.09678 | 0.022 s/it | elapsed 00:14:37 | ETA 00:04:14
+2026-10-18 13:57:42 | epoch 310/400 | mean train loss 0.09914 | val PSNR 16.970 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:57:55 | epoch 315/400 | iter 40320/51200 | loss 0.10129 | 0.022 s/it | elapsed 00:14:52 | ETA 00:04:00
+2026-10-18 13:58:08 | epoch 320/400 | iter 40960/51200 | loss 0.10374 | 0.022 s/it | elapsed 00:15:05 | ETA 00:03:46
+2026-10-18 13:58:10 | epoch 320/400 | mean train loss 0.10336 | val PSNR 16.597 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:58:10 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 320)
+2026-10-18 13:58:22 | epoch 325/400 | iter 41600/51200 | loss 0.10021 | 0.022 s/it | elapsed 00:15:19 | ETA 00:03:32
+2026-10-18 13:58:35 | epoch 330/400 | iter 42240/51200 | loss 0.10144 | 0.022 s/it | elapsed 00:15:32 | ETA 00:03:17
+2026-10-18 13:58:37 | epoch 330/400 | mean train loss 0.10060 | val PSNR 16.728 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:58:49 | epoch 335/400 | iter 42880/51200 | loss 0.10183 | 0.022 s/it | elapsed 00:15:46 | ETA 00:03:03
+2026-10-18 13:59:02 | epoch 340/400 | iter 43520/51200 | loss 0.10442 | 0.022 s/it | elapsed 00:15:59 | ETA 00:02:49
+2026-10-18 13:59:04 | epoch 340/400 | mean train loss 0.09992 | val PSNR 16.594 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:59:04 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 340)
+2026-10-18 13:59:16 | epoch 345/400 | iter 44160/51200 | loss 0.10406 | 0.022 s/it | elapsed 00:16:13 | ETA 00:02:35
+2026-10-18 13:59:29 | epoch 350/400 | iter 44800/51200 | loss 0.10294 | 0.022 s/it | elapsed 00:16:26 | ETA 00:02:20
+2026-10-18 13:59:31 | epoch 350/400 | mean train loss 0.09534 | val PSNR 16.728 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:59:44 | epoch 355/400 | iter 45440/51200 | loss 0.10252 | 0.022 s/it | elapsed 00:16:40 | ETA 00:02:06
+2026-10-18 13:59:56 | epoch 360/400 | iter 46080/51200 | loss 0.10006 | 0.022 s/it | elapsed 00:16:53 | ETA 00:01:52
+2026-10-18 13:59:58 | epoch 360/400 | mean train loss 0.10224 | val PSNR 16.613 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 13:59:58 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 360)
+2026-10-18 14:00:11 | epoch 365/400 | iter 46720/51200 | loss 0.09847 | 0.022 s/it | elapsed 00:17:08 | ETA 00:01:38
+2026-10-18 14:00:24 | epoch 370/400 | iter 47360/51200 | loss 0.09833 | 0.022 s/it | elapsed 00:17:21 | ETA 00:01:24
+2026-10-18 14:00:26 | epoch 370/400 | mean train loss 0.10275 | val PSNR 16.784 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 14:00:39 | epoch 375/400 | iter 48000/51200 | loss 0.10214 | 0.022 s/it | elapsed 00:17:35 | ETA 00:01:10
+2026-10-18 14:00:51 | epoch 380/400 | iter 48640/51200 | loss 0.09935 | 0.022 s/it | elapsed 00:17:48 | ETA 00:00:56
+2026-10-18 14:00:53 | epoch 380/400 | mean train loss 0.09042 | val PSNR 16.418 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 14:00:53 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 380)
+2026-10-18 14:01:06 | epoch 385/400 | iter 49280/51200 | loss 0.09994 | 0.022 s/it | elapsed 00:18:02 | ETA 00:00:42
+2026-10-18 14:01:19 | epoch 390/400 | iter 49920/51200 | loss 0.10297 | 0.022 s/it | elapsed 00:18:15 | ETA 00:00:28
+2026-10-18 14:01:20 | epoch 390/400 | mean train loss 0.09756 | val PSNR 16.528 dB (35 held-out pairs, curve only) | lr 1.25e-05
+2026-10-18 14:01:33 | epoch 395/400 | iter 50560/51200 | loss 0.10131 | 0.022 s/it | elapsed 00:18:30 | ETA 00:00:14
+2026-10-18 14:01:46 | epoch 400/400 | iter 51200/51200 | loss 0.09814 | 0.022 s/it | elapsed 00:18:43 | ETA 00:00:00
+2026-10-18 14:01:48 | epoch 400/400 | mean train loss 0.09396 | val PSNR 16.440 dB (35 held-out pairs, curve only) | lr 6.25e-06
+2026-10-18 14:01:48 | checkpoint saved: D:\AML_Assignment2\checkpoints\PairLIE\last.pt (epoch 400)
+2026-10-18 14:01:48 | TRAINING FINISHED: final checkpoint D:\AML_Assignment2\checkpoints\PairLIE\final.pth

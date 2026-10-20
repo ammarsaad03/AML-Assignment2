@@ -1,0 +1,2 @@
+2026-10-18 13:06:35 | SCI Protocol B | 450 training images | epochs 1000 | Adam lr 0.0003 wd 0.0003 | clip 5 | seed 42
+2026-10-18 13:07:59 | SPEED SCI: 300 iters measured (batch 1) | 0.2689 s/iter | peak GPU mem allocated 1.34 GB (reserved 1.51 GB) | full training = 450000 iters -> estimated 33.61 h

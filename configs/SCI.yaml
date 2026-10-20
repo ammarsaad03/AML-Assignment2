@@ -1,0 +1,66 @@
+# SCI - "Toward Fast, Flexible, and Robust Low-Light Image Enhancement" (Ma et al., CVPR 2022)
+# Test-only evaluation with official pretrained weights. Training fields = author's setting (not re-trained).
+model: SCI
+code: https://github.com/vis-opt-group/SCI @ f6f88fd73cd614dbeee17d61a0dbde3678b7e183 (folder CVPR/)
+wrapper: scripts/run_sci.py
+
+dataset:
+  name: [LOL-v1 eval15, LSRW eval (Huawei + Nikon)]
+  data_source: see docs/sources.md (LOL-v1 via Retinexformer README Google Drive; LSRW via Kaggle mirror of official release)
+
+preprocessing: >-
+  RGB, uint8 -> float32 in [0, 1] (divide by 255), full resolution, no resizing/cropping/padding.
+  Output clamp(x / illumination, 0, 1), saved as 8-bit PNG (rounded). Shared code: scripts/common.py.
+  Same as official test.py (PIL RGB + ToTensor), except official saving truncates instead of rounding.
+
+split:
+  train: "author's setting (not re-trained): shipped medium.pt trained 'mainly on LOL and LSRW' (source: models/SCI/CVPR/README.md); exact images not reported"
+  val: not reported
+  test: "ours: LOL-v1 eval15 (15 pairs); LSRW eval (50 pairs). Only low-light images are given to the model."
+
+input_size:
+  test: full resolution (LOL-v1 600x400; LSRW 960x720 / 960x640)
+  train: "author's setting (not re-trained): full images, no crop (crop lines are commented out in models/SCI/CVPR/multi_read_data.py)"
+
+batch_size:
+  test: 1
+  train: "author's setting (not re-trained): 8 (paper Sec. 4.1 'Parameter Settings'); released code default is 1 (models/SCI/CVPR/train.py, --batch_size)"
+
+training_length: "author's setting (not re-trained): 1000 epochs (paper Sec. 4.1; same in models/SCI/CVPR/train.py, --epochs)"
+optimizer: "author's setting (not re-trained): Adam, betas (0.9, 0.999), eps 1e-8 (paper Sec. 4.1); released code adds weight_decay 3e-4 (models/SCI/CVPR/train.py, line 91)"
+learning_rate: "author's setting (not re-trained): 1e-4 (paper Sec. 4.1); released code default is 3e-4 (models/SCI/CVPR/train.py, --lr); constant, no scheduler in code"
+loss_function: >-
+  author's setting (not re-trained): unsupervised; per stage (3 stages, --stage default)
+  1.5 * MSE(illumination, input) [fidelity] + spatially weighted smoothness loss on illumination (sigma = 10, YCbCr weights)
+  (models/SCI/CVPR/loss.py, LossFunction)
+augmentation: "author's setting (not re-trained): none (no crop or flip in models/SCI/CVPR/multi_read_data.py)"
+note_on_training_config: >-
+  The README states the shipped weights are NOT the models behind the paper's results; the train.py defaults above are the
+  released training configuration, but the exact settings used to produce medium.pt are not reported.
+
+pretrained_weights:
+  file: models/SCI/CVPR/weights/medium.pt
+  sha256: 4ff1e7e66e8f18114f790e5085ca4c936f0858e329e7ad1cb65b8aa09a9c6916
+  trained_on: "mainly LOL and LSRW (models/SCI/CVPR/README.md); exact images not reported"
+  used_at_test: 18 'enhance.*' tensors of 83 (self-calibration module is training-only); 258 parameters
+
+environment:
+  ours: Windows 11, NVIDIA RTX 3060 12 GB, driver 610.88, Python 3.10.21, PyTorch 2.7.1+cu118, CUDA 11.8 (see environment.txt)
+  authors: "python 3.7, pytorch 1.8.0, CUDA 11.1 (models/SCI/CVPR/README.md); single TITAN X GPU (paper Sec. 4)"
+paper_reference: "Ma et al., CVPR 2022, arXiv:2204.10137. Paper protocol: trained on 500 MIT + 500 LSRW images (README), tested on 100 MIT + 50 LSRW random images (paper Sec. 4.1)"
+
+protocol_B:
+  data: "LOL-v1 training low images only, 450 (configs/train_split.txt); 35 held-out pairs (configs/val_split.txt) for validation PSNR (curve only)"
+  architecture: "official Network(stage=3) and weight init (models/SCI/CVPR/model.py, train.py)"
+  input_size: "full resolution 600x400, no crop (official)"
+  batch_size: 1
+  epochs: "200 (90,000 iterations) - reduced from the official 1000 (~34 h on RTX 3060) due to hardware limits"
+  optimizer: "Adam, betas (0.9, 0.999), weight decay 3e-4, grad-norm clip 5 (official code values)"
+  learning_rate: "3e-4, constant (official code value; paper: 1e-4)"
+  loss: "official unsupervised loss: per stage 1.5 * MSE fidelity + weighted smoothness loss"
+  augmentation: none
+  seed: 42
+  checkpoint_selection: "final checkpoint (unsupervised), checkpoints/SCI/final.pt"
+  training_time: "6 h 39 min 25 s (0.266 s/iteration), logs/train_SCI.log"
+  hardware: "NVIDIA RTX 3060 12 GB, Windows 11, PyTorch 2.7.1+cu118"
+  script: scripts/train_sci.py

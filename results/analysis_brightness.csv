@@ -1,0 +1,23 @@
+dataset,source,mean_brightness
+LOL-v1,input (low),0.0594
+LOL-v1,ground truth,0.4506
+LOL-v1,SCI,0.2734
+LOL-v1,PairLIE,0.3843
+LOL-v1,URetinex-Net,0.4458
+LOL-v1,Retinexformer,0.4328
+LOL-v1,RUAS,0.3710
+LOL-v1,SCI_B,0.2164
+LOL-v1,PairLIE_B,0.4058
+LOL-v1,Retinexformer_B,0.4501
+LOL-v1,RUAS_B,0.3968
+LSRW,input (low),0.1070
+LSRW,ground truth,0.4260
+LSRW,SCI,0.3469
+LSRW,PairLIE,0.4264
+LSRW,URetinex-Net,0.4492
+LSRW,Retinexformer,0.3859
+LSRW,RUAS,0.4412
+LSRW,SCI_B,0.2935
+LSRW,PairLIE_B,0.4493
+LSRW,Retinexformer_B,0.3774
+LSRW,RUAS_B,0.4610
