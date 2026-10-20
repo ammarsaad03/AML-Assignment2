@@ -225,8 +225,3 @@ https://www.kaggle.com/datasets/bjzh123/lsrw123); the PairLIE training sequences
 the LOL-derived ones were used.
 
 **Libraries:** PyTorch, torchvision, scikit-image, lpips, fvcore, NumPy, matplotlib, Pillow, OpenCV, gdown, python-docx.
-
-**AI tools:** Claude Code (Anthropic; model Claude Opus 5.5) was used as a coding assistant for writing the wrapper,
-training, evaluation and plotting scripts and the documentation, and for checking the official code. All decisions
-(protocols, fairness rules, deviations) were made and checked by the author; all full training runs were started by
-the author, and all results were produced by running the scripts in this repository.
