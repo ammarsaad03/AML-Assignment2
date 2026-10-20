@@ -14,7 +14,6 @@ All models are tested with the same preprocessing and the same metric code (PSNR
 at inference, no GT-mean correction and no tuning on the test sets.
 
 ## Contents
-
 | Item | Content |
 |---|---|
 | `report/AML_Assignment2_Report.docx` | Technical report |
@@ -34,7 +33,6 @@ Datasets, official repositories, weights and checkpoints are **not** included (r
 large); sections 2 and 3 give the official links and the steps to obtain them.
 
 ## 1. Environment
-
 Tested on Windows 11, NVIDIA RTX 3060 12 GB (driver 610.88), 8 GB RAM, conda (Miniconda).
 
 1. Create the environment (Python 3.10, PyTorch 2.7.1 + CUDA 11.8). I cloned an existing env
@@ -208,7 +206,7 @@ The report is `report/AML_Assignment2_Report.docx`. Every table and result numbe
 10. R. Zhang, P. Isola, A. A. Efros, E. Shechtman, O. Wang, "The Unreasonable Effectiveness of Deep Features as a
     Perceptual Metric," CVPR 2018. DOI: 10.1109/CVPR.2018.00068
 
-Full entries with page numbers: `docs/references.md`.
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Acknowledgements
 
